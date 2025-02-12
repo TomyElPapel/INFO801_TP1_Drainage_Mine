@@ -5,11 +5,7 @@ public class Environnement implements Runnable {
 
     private float _niveauEau = 10;
 
-    private boolean _niveauEauMonte = false;
-    private boolean _niveauEauBaisse = false;
-
-    
- 
+    private boolean _pompeActive = false; 
 
     static private Environnement _singleton;
 
@@ -31,15 +27,10 @@ public class Environnement implements Runnable {
 
             try {
                 Thread.sleep(1000);
-                if (_niveauEauMonte) {
-                    _niveauEau ++;
+                _niveauEau ++;
+                if (_pompeActive) {
+                    _niveauEau -= 4;
                 }
-
-                if (_niveauEauBaisse) {
-                    _niveauEau --;
-                }
-
-
                 System.out.println("Niveau Eau " + _niveauEau);
 
             } catch (InterruptedException e) {
@@ -49,19 +40,8 @@ public class Environnement implements Runnable {
 
     }
 
-    public static void SetNiveauEauMonte(boolean v) {
-        _singleton._niveauEauMonte = v;
-    }
 
-    public static void SetNiveauEauBaisse(boolean v) {
-        _singleton._niveauEauBaisse = v;
-    }
-
-    public static boolean GetNiveauEauMonte() {
-        return _singleton._niveauEauMonte;
-    }
-
-    public static boolean GetNiveauEauBaisse() {
-        return _singleton._niveauEauBaisse ;
+    public static void SetPompeActive(boolean v) {
+        _singleton._pompeActive = v;
     }
 }

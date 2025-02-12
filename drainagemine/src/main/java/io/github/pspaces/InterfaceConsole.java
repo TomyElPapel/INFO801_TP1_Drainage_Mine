@@ -12,19 +12,19 @@ public class InterfaceConsole {
 
 
     public static void start() {
-        try (Scanner in = new Scanner(System.in)) {
-            while (true) {
-                int v = in.nextInt();
+        // try (Scanner in = new Scanner(System.in)) {
+        //     while (true) {
+        //         int v = in.nextInt();
 
-                if (v == 1) {
-                    Environnement.SetNiveauEauBaisse(!Environnement.GetNiveauEauBaisse());
-                }
+        //         if (v == 1) {
+        //             Environnement.SetNiveauEauBaisse(!Environnement.GetNiveauEauBaisse());
+        //         }
 
 
-                if (v == 0) {
-                    Environnement.SetNiveauEauMonte(!Environnement.GetNiveauEauMonte());
-                }
-            }
-        }
+        //         if (v == 0) {
+        //             Environnement.SetNiveauEauMonte(!Environnement.GetNiveauEauMonte());
+        //         }
+        //     }
+        // }
     }
 }
