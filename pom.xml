@@ -54,6 +54,7 @@
     <modules>
         <module>common</module>
         <module>examples</module>
+        <module>drainagemine</module>
     </modules>
 
     <dependencies>
