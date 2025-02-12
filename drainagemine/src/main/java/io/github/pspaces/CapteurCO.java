@@ -1,6 +1,6 @@
 package io.github.pspaces;
 
-import sun.jvm.hotspot.gc.shared.Space;
+import org.jspace.Space;
 
 public class CapteurCO  implements Runnable {
     private Space space;
