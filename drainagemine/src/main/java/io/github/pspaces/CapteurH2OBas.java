@@ -15,7 +15,7 @@ public class CapteurH2OBas  implements Runnable {
         System.out.println("CapteurH2OBas: Je suis en marche");
         try {
             while ((space.queryp(new ActualField("STOP")) == null)) {
-                if (Environnement.getNiveauEau() <= Config.SEUIL_EAU_BAS) {
+                if ((Environnement.getNiveauEau() <= Config.SEUIL_EAU_BAS) && (space.queryp(new ActualField("activation_pompe")) != null)) {
                     space.get(new ActualField("activation_pompe"));
                     System.out.println("CapteurH2OBas: J'ai détecté un niveau d'eau Bas");
                 }
