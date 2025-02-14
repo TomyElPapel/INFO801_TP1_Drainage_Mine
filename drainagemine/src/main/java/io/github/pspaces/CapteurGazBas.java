@@ -10,14 +10,18 @@ public class CapteurGazBas  implements Runnable {
         this.space = space;
     }
 
+    boolean is_gaz_below() {
+        return (Environnement.getNiveauMonoxydeCarbone() <= Config.SEUIL_MONOXYDE_CARBONE_BAS) && (Environnement.getNiveauMethane() <= Config.SEUIL_METHANE_BAS);
+    }
+
     @Override
     public void run() {
-        System.out.println("CapteurH2OBas: Je suis en marche");
+        System.out.println("CapteurGazBas: Je suis en marche");
         try {
             while ((space.queryp(new ActualField("STOP")) == null)) {
-                if ((Environnement.getNiveauEau() <= Config.SEUIL_EAU_BAS) && (space.queryp(new ActualField("activation_pompe")) != null)) {
-                    space.get(new ActualField("activation_pompe"));
-                    System.out.println("CapteurH2OBas: J'ai détecté un niveau d'eau Bas");
+                if (is_gaz_below() && (space.queryp(new ActualField("activation_ventilateur")) != null)) {
+                    space.get(new ActualField("activation_ventilateur"));
+                    System.out.println("CapteurGazBas: J'ai détecté un niveau de gaz Bas");
                 }
             }
         } catch (InterruptedException e) {

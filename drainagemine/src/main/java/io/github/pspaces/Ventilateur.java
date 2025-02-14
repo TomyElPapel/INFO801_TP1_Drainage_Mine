@@ -13,7 +13,7 @@ public class Ventilateur  implements Runnable {
 
     boolean sendToEnv(boolean b) {
         if (b != active) {
-            // Environnement.SetVentilateurActive(b);
+            Environnement.SetVentilateurActive(b);
             active = b;
             return true;
         }
@@ -26,7 +26,7 @@ public class Ventilateur  implements Runnable {
         }
     }
 
-    Object[] getActivationPompe() {
+    Object[] getActivationVentilateur() {
         try {
             Object[] b = space.queryp(new ActualField("activation_ventilateur"));
             return b;
@@ -40,7 +40,7 @@ public class Ventilateur  implements Runnable {
         System.out.println("Ventilateur: Je suis en marche");
         try{
             while ((space.queryp(new ActualField("STOP")) == null)) {               // Attends un signal d'arrêt
-                while (getActivationPompe() != null) {                                    // Tant que le signal d'activation est présent
+                while (getActivationVentilateur() != null) {                              // Tant que le signal d'activation est présent
                     ventilation();                                                        // Ventile
                 }
                 if (sendToEnv(false)) {
