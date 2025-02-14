@@ -3,10 +3,10 @@ package io.github.pspaces;
 import org.jspace.ActualField;
 import org.jspace.Space;
 
-public class CapteurH2OHaut  implements Runnable {
+public class CapteurGazHaut  implements Runnable {
     private Space space;
 
-    CapteurH2OHaut(Space space) {
+    CapteurGazHaut(Space space) {
         this.space = space;
     }
 
