@@ -43,11 +43,11 @@ public class Environnement implements Runnable {
                 _niveauMethane ++;
                 _niveauMonoxydeCarbone += 2;
                 if (_pompeActive) {
-                    _niveauEau -= 4;
+                    _niveauEau -= 3;
                 }
 
                 if (_ventilateurActive) {
-                    _niveauMethane -= 4;
+                    _niveauMethane -= 5;
                     _niveauMonoxydeCarbone -= 3;
                 }
 
