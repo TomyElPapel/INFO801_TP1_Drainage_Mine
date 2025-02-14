@@ -47,8 +47,20 @@ public class Environnement implements Runnable {
                 }
 
                 if (_ventilateurActive) {
-                    _niveauMethane -= 3;
-                    _niveauMonoxydeCarbone -= 2;
+                    _niveauMethane -= 4;
+                    _niveauMonoxydeCarbone -= 3;
+                }
+
+                if (_niveauEau < 0) {
+                    _niveauEau = 0;
+                }
+
+                if (_niveauMethane < 0) {
+                    _niveauMethane = 0;
+                }
+
+                if (_niveauMonoxydeCarbone < 0) {
+                    _niveauMonoxydeCarbone = 0;
                 }
 
                 System.out.println("Niveau Eau " + _niveauEau + " | " + "Monoxyde de Carbone " + _niveauMonoxydeCarbone + " | " + "Methane " + _niveauMethane);
