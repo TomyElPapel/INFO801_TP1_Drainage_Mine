@@ -41,12 +41,15 @@ public class Pompe implements Runnable {
         System.out.println("Pompe: Je suis en marche");
         try{
             while ((space.queryp(new ActualField("STOP")) == null)) {               // Attends un signal d'arrêt
-                while (getActivationPompe() != null) {                                    // Tant que le signal d'activation est présent
-                    pompage();                                                            // Pompe
+                if(space.queryp(new ActualField("activation_ventilateur")) == null)
+                {
+                    while (getActivationPompe() != null) {                                    // Tant que le signal d'activation est présent
+                        pompage();                                                            // Pompe
 
-                }
-                if (sendToEnv(false)) {
-                    System.out.println("Pompe: Je m'arrête");
+                    }
+                    if (sendToEnv(false)) {
+                        System.out.println("Pompe: Je m'arrête");
+                    }
                 }
             }
         } catch (InterruptedException e) {
