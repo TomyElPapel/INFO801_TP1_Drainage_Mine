@@ -1,4 +1,4 @@
-Burfin Thoma
+Burfin Thomas
 Leonarduzzi Alexis
 
 # INFO801 TP1 - Drainage d'une mine
