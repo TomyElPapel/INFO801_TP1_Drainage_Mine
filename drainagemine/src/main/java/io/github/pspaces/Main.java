@@ -32,8 +32,8 @@ public class Main {
         // space.put("STOP");
 
 
-        
-        InterfaceConsole.start();
+        InterfaceConsole interfaceConsole = new InterfaceConsole(space);
+        interfaceConsole.start();
 
 
         env.join();

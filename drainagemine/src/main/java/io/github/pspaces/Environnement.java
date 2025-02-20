@@ -63,7 +63,7 @@ public class Environnement implements Runnable {
                     _niveauMonoxydeCarbone = 0;
                 }
 
-                System.out.println("Niveau Eau " + _niveauEau + " | " + "Monoxyde de Carbone " + _niveauMonoxydeCarbone + " | " + "Methane " + _niveauMethane);
+                //System.out.println("Niveau Eau " + _niveauEau + " | " + "Monoxyde de Carbone " + _niveauMonoxydeCarbone + " | " + "Methane " + _niveauMethane);
 
             } catch (InterruptedException e) {
                 e.printStackTrace();
