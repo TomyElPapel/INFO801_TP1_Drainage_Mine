@@ -8,8 +8,9 @@
         <outputRelativeToContentRoot value="true" />
         <module name="helloworld" />
         <module name="common" />
-        <module name="diningphilosophers" />
         <module name="producerconsumer" />
+        <module name="livraison" />
+        <module name="diningphilosophers" />
         <module name="pingpong" />
         <module name="drainagemine" />
       </profile>
