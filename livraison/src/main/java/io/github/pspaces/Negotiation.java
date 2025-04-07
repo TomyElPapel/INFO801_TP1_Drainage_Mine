@@ -1,3 +1,9 @@
+package io.github.pspaces;
+
+import io.github.pspaces.AppelOffre;
+
+import javax.xml.crypto.Data;
+
 public class Negotiation {
     private AppelOffre appelOffre;
     private Data date;

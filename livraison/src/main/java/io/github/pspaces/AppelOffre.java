@@ -1,17 +1,21 @@
+package io.github.pspaces;
+
+import java.util.Date;
+
 public class AppelOffre {
     private String nom;
     private String[] requirements;
     private float cout;
     private Date date;
-    private int quantitée;
+    private int quantitee;
 
     // Constructor
-    public AppelOffre(String nom, String[] requirements, float cout, Date date, int quantitée) {
+    public AppelOffre(String nom, String[] requirements, float cout, Date date, int quantitee) {
         this.nom = nom;
         this.requirements = requirements;
         this.cout = cout;
         this.date = date;
-        this.quantitée = quantitée;
+        this.quantitee = quantitee;
     }
 
     // Getters and Setters
@@ -47,11 +51,11 @@ public class AppelOffre {
         this.date = date;
     }
 
-    public int getQuantitée() {
-        return quantitée;
+    public int getQuantitee() {
+        return quantitee;
     }
 
-    public void setQuantitée(int quantitée) {
-        this.quantitée = quantitée;
+    public void setQuantitee(int quantitee) {
+        this.quantitee = quantitee;
     }
 }
