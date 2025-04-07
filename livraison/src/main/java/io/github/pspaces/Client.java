@@ -33,7 +33,8 @@ public class Client implements Runnable {
                 System.out.println("Client: Received negotiation from Fabricant " + fabricantId + " with price " + proposedPrice);
 
                 // Simple decision rule: accept if price is less than original budget
-                boolean approved = proposedPrice <= appelOffre.getCout();
+                float priceThreshold = appelOffre.getCout() * 0.85f;
+                boolean approved = proposedPrice <= priceThreshold;
 
                 space.put("reponse", fabricantId, approved);
 
