@@ -55,6 +55,7 @@
         <module>common</module>
         <module>examples</module>
         <module>drainagemine</module>
+        <module>livraison</module>
     </modules>
 
     <dependencies>
