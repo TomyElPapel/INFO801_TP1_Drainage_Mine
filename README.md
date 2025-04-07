@@ -19,12 +19,21 @@ Voici la liste des agents que nous avons décidé de représenter dans notre sim
 
 ### Ventilateur
 ````
-
+Ventilateur() =
+rd(ts, |activation_ventilateur, ?activation|)).
+([activation]
+    Ventilateur()
+)
 ````
 
 ### Pompe
 ````
-
+Pompe() =
+rd(ts, |activation_pompe, ?activation_p|)).
+rd(ts, |activation_ventilateur, ?activation_v|)).
+([activation_p ∧ non activation_v]
+    Pompe()
+)
 ````
 
 ### Capteur Gaz Bas

@@ -74,7 +74,6 @@ public class InterfaceConsole {
             long deltaTime = currentTime.getTime() - lastTime.getTime();
 
             if (deltaTime >= 1000) {
-                // System.out.print("\033[H\033[2J");
 
                 printMineStatus();
 
