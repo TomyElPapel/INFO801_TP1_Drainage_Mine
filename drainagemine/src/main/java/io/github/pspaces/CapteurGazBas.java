@@ -3,7 +3,7 @@ package io.github.pspaces;
 import org.jspace.ActualField;
 import org.jspace.Space;
 
-public class CapteurGazBas  implements Runnable {
+public class CapteurGazBas implements Runnable {
     private Space space;
 
     CapteurGazBas(Space space) {
