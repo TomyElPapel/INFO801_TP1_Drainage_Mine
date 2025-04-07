@@ -1,16 +1,14 @@
 package io.github.pspaces;
 
-import io.github.pspaces.AppelOffre;
-
-import javax.xml.crypto.Data;
+import java.util.Date;
 
 public class Negotiation {
     private AppelOffre appelOffre;
-    private Data date;
+    private Date date;
     private float prix;
 
     // Constructor
-    public Negotiation(AppelOffre appelOffre, Data date, float prix) {
+    public Negotiation(AppelOffre appelOffre, Date date, float prix) {
         this.appelOffre = appelOffre;
         this.date = date;
         this.prix = prix;
@@ -26,11 +24,11 @@ public class Negotiation {
     }
 
     // Getter and Setter for date
-    public Data getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(Data date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
