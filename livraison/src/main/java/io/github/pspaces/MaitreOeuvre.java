@@ -38,7 +38,7 @@ public class MaitreOeuvre implements Runnable {
                 iterations++;
 
                 // Publish appel d'offre to fabricants
-                System.out.println("MaitreOeuvre: Publishing appel d'offre to all fabricants");
+                System.out.println("MaitreOeuvre: Publication de l'appel d'offre pour tous les fabricants");
                 fabricantSpace.put("appeloffre", appelOffre);
 
                 // Wait for a negotiation from any fabricant
@@ -51,7 +51,7 @@ public class MaitreOeuvre implements Runnable {
                 Negotiation negotiation = (Negotiation) negociationObjects[1];
                 String fabricantId = (String) negociationObjects[2];
 
-                System.out.println("MaitreOeuvre: Received negotiation from Fabricant " + fabricantId);
+                System.out.println("MaitreOeuvre: Recu negociation de Fabricant " + fabricantId);
 
                 // Pass negotiation to client
                 clientSpace.put("negociation", negotiation, fabricantId);
@@ -69,16 +69,16 @@ public class MaitreOeuvre implements Runnable {
                 fabricantSpace.put("decision", fabricantId, approved);
 
                 if (approved) {
-                    System.out.println("MaitreOeuvre: Client approved negotiation from Fabricant " + fabricantId);
+                    System.out.println("MaitreOeuvre: Client accepte l'appel d'offre de Fabricant " + fabricantId);
                     negotiationComplete = true; // End the process
                 } else {
-                    System.out.println("MaitreOeuvre: Client rejected negotiation from Fabricant " + fabricantId);
+                    System.out.println("MaitreOeuvre: Client refuse l'appel d'offre de Fabricant " + fabricantId);
                     // Continue to next iteration where we'll post the appel d'offre again
                 }
             }
 
             if (!negotiationComplete) {
-                System.out.println("MaitreOeuvre: Maximum iterations reached without agreement.");
+                System.out.println("MaitreOeuvre: Maximum tentative atteint, arret de la negotiation");
             }
 
         } catch (InterruptedException e) {

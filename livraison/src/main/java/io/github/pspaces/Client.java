@@ -21,7 +21,7 @@ public class Client implements Runnable {
             AppelOffre appelOffre = new AppelOffre("Projet X", requirements, 10000.0f, deadlineDate, 100);
 
             space.put("appeloffre", appelOffre);
-            System.out.println("Client: Appel d'offre envoyé");
+            System.out.println("Client: Appel d'offre envoye");
 
             // Wait for negotiations
             while (true) {
@@ -30,7 +30,7 @@ public class Client implements Runnable {
                 String fabricantId = (String) negociationObjects[2];
 
                 float proposedPrice = negociation.getPrix();
-                System.out.println("Client: Received negotiation from Fabricant " + fabricantId + " with price " + proposedPrice);
+                System.out.println("Client: Recu negociation de " + fabricantId + " avec prix de " + proposedPrice);
 
                 // Simple decision rule: accept if price is less than original budget
                 float priceThreshold = appelOffre.getCout() * 0.85f;
@@ -39,10 +39,11 @@ public class Client implements Runnable {
                 space.put("reponse", fabricantId, approved);
 
                 if (approved) {
-                    System.out.println("Client: Approved negotiation from Fabricant " + fabricantId);
+                    System.out.println("Client: Accepte la negotiation de Fabricant " + fabricantId);
                     break; // We found an acceptable offer
                 } else {
-                    System.out.println("Client: Rejected negotiation from Fabricant " + fabricantId + " (price too high)");
+                    System.out.println("Client: Refuse la negotiation de Fabricant " + fabricantId + " (prix trop eleve)");
+                    System.out.println("---------------------------------------");
                 }
             }
         } catch (InterruptedException e) {

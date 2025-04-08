@@ -21,13 +21,13 @@ public class Fabricant implements Runnable {
     public void run() {
         try {
             while (true) {
-                System.out.println("Fabricant " + id + ": Waiting for appel d'offre...");
+                System.out.println("Fabricant " + id + ": En attente d'un appel d'offre...");
 
                 // Get the appel d'offre - only one fabricant will succeed
                 Object[] objects = space.get(new ActualField("appeloffre"), new FormalField(AppelOffre.class));
                 AppelOffre appelOffre = (AppelOffre) objects[1];
 
-                System.out.println("Fabricant " + id + ": Successfully grabbed the appel d'offre");
+                System.out.println("Fabricant " + id + ": Appel d'offre reçu");
 
                 // Generate an offer price based on the budget
                 float budget = appelOffre.getCout();
@@ -48,7 +48,7 @@ public class Fabricant implements Runnable {
                 // Create negotiation object
                 Negotiation negotiation = new Negotiation(appelOffre, new Date(), proposedPrice);
 
-                System.out.println("Fabricant " + id + ": Submitting offer of " + proposedPrice);
+                System.out.println("Fabricant " + id + ": Soumission de l'offre a " + proposedPrice);
                 space.put("negociation", negotiation, id);
 
                 // Wait for decision
@@ -57,10 +57,10 @@ public class Fabricant implements Runnable {
                 boolean approved = (Boolean) decisionObjects[2];
 
                 if (approved) {
-                    System.out.println("Fabricant " + id + ": Offer accepted! Contract won at " + proposedPrice);
+                    System.out.println("Fabricant " + id + ": Offre acceptee " + proposedPrice);
                     // We could add contract execution logic here
                 } else {
-                    System.out.println("Fabricant " + id + ": Offer rejected. Waiting for next opportunity.");
+                    System.out.println("Fabricant " + id + ": Offre refusee " + proposedPrice);
                     // Small random delay to avoid one fabricant always winning
                     Thread.sleep(random.nextInt(50));
                 }
